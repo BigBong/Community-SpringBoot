@@ -63,6 +63,7 @@ ext.libraries = [
         mysql                  : "mysql:mysql-connector-java:${versions.mysql}",
         mybatis                : "org.mybatis:mybatis:${versions.mybatis}",
         mybatis_generator      : "org.mybatis.generator:mybatis-generator-core:${versions.mybatis_generator}",
+        mybatis_mapper         : "tk.mybatis:mapper:3.3.2",
         mybatis_spring         : "org.mybatis:mybatis-spring:${versions.mybatis_spring}",
 
         slf4j_api              : "org.slf4j:slf4j-api:${versions.slf4j}",
