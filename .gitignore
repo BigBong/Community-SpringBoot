@@ -1,3 +1,4 @@
+# Gradle
 .gradle
 build/
 
@@ -12,3 +13,28 @@ gradle-app.setting
 
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
+
+# OSX
+.DS_Store
+
+# IDEA
+*.iml
+*.ipr
+*.iws
+out
+.idea
+
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# log #
+log
+*.log
+
