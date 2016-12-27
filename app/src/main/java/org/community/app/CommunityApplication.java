@@ -13,7 +13,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import java.util.Arrays;
 
-@Controller
 @EnableWebMvc
 @MapperScan("org.community.core.mapper")
 @SpringBootApplication
@@ -21,11 +20,6 @@ public class CommunityApplication extends WebMvcConfigurerAdapter {
 
     public static void main(String[] args) {
         SpringApplication.run(CommunityApplication.class, args);
-    }
-
-    @RequestMapping("/")
-    String home() {
-        return "redirect:index";
     }
 
     @Bean

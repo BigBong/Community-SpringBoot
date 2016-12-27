@@ -4,4 +4,6 @@ apply plugin: 'org.springframework.boot'
 
 dependencies {
     compile project(':core')
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.springframework.boot:spring-boot-starter-jetty")
 }

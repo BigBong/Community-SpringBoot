@@ -10,7 +10,7 @@ ext.versions = [
         spock                 : '1.0-groovy-2.4',
         mockito               : '1.10.19',
         hamcrest              : '1.3',
-        mysql                 : '5.1.39',
+        mysql                 : '5.1.40',
         mybatis               : '3.4.0',
         mybatis_generator     : '1.3.2',
         mybatis_spring        : '1.3.0',
@@ -85,8 +85,4 @@ ext.libraries = [
         aspectjtools           : "org.aspectj:aspectjtools:${versions.aspectjtools}",
         freemarker             : "org.freemarker:freemarker:${versions.freemarker}",
         c3p0                   : "c3p0:c3p0:${versions.c3p0}",
-]
-
-ext.jars = [
-        mysql_connector: files('libs/mysql-connector-java-5.1.39.jar'),
 ]
