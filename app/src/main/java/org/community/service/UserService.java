@@ -1,8 +1,8 @@
-package org.community.app.service;
+package org.community.service;
 
-import org.community.core.domain.User;
-import org.community.core.domain.UserExample;
-import org.community.core.mapper.UserMapper;
+import org.community.domain.User;
+import org.community.domain.UserExample;
+import org.community.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

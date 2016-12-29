@@ -1,12 +1,13 @@
-package org.community.core.mapper;
+package org.community.mapper;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
-import org.community.core.domain.LocalFile;
-import org.community.core.domain.LocalFileExample;
+import org.community.domain.LocalFile;
+import org.community.domain.LocalFileExample;
+
 @Mapper
 public interface LocalFileMapper {
     int countByExample(LocalFileExample example);

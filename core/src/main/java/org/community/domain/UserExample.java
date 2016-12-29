@@ -1,4 +1,4 @@
-package org.community.core.domain;
+package org.community.domain;
 
 import java.util.ArrayList;
 import java.util.Date;

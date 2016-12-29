@@ -62,6 +62,7 @@
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>-->
         <table tableName="user" domainObjectName="User"/>
+        <table tableName="file" domainObjectName="LocalFile"/>
 
     </context>
 </generatorConfiguration>

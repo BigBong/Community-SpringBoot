@@ -2,13 +2,77 @@
 <html lang="zh-CN">
 <head>
     <title>首页</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div>
-    <h2>Greetings from Spring Boot!</h2>
+<p/>
+<div class="container">
+    <div class="jumbotron">
+        <div class="page-header">
+            <h1>Spring Boot 学习实例
+                <small>@frodo</small>
+            </h1>
+        </div>
+        <div class="list-group">
+            <a href="#" class="list-group-item active">
+                <h4 class="list-group-item-heading">
+                    基本功能
+                </h4>
+            </a>
+            <a href="/web/file/upload" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    文件操作
+                </h4>
+                <p class="list-group-item-text">
+                    上传小文件到服务器并且支持查看功能
+                </p>
+            </a>
+        </div>
+        <p/>
+        <div class="list-group">
+            <a href="#" class="list-group-item active">
+                <h4 class="list-group-item-heading">
+                    服务器性能检测
+                </h4>
+            </a>
+            <a href="/info" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    查看服务器基本信息
+                </h4>
+                <p class="list-group-item-text">
+                    /info
+                </p>
+            </a>
+            <a href="/beans" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    查看beans
+                </h4>
+                <p class="list-group-item-text">
+                    /beans
+                </p>
+            </a>
+            <a href="/health" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    查看服务器状态
+                </h4>
+                <p class="list-group-item-text">
+                    /health
+                </p>
+            </a>
+            <a href="/mappings" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    查看服务器api
+                </h4>
+                <p class="list-group-item-text">
+                    /mappings
+                </p>
+            </a>
+        </div>
+    </div>
 </div>
 </body>
 </html>

@@ -7,3 +7,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.springframework.boot:spring-boot-starter-jetty")
 }
+
+bootRun {
+    addResources = true
+}
