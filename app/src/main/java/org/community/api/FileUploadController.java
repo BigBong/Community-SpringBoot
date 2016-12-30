@@ -1,8 +1,9 @@
 package org.community.api;
 
-import org.apache.log4j.Logger;
 import org.community.property.CustomProperties;
 import org.community.service.FileService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
@@ -22,7 +23,7 @@ import java.io.FileOutputStream;
 @RequestMapping("/api")
 public class FileUploadController {
 
-    private static final Logger logger = Logger.getLogger(FileUploadController.class);
+    private static final Logger logger = LoggerFactory.getLogger(FileUploadController.class);
 
     @Autowired
     private FileService fileService;
