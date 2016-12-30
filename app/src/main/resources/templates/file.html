@@ -1,44 +1,39 @@
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head th:replace="layout :: common_header(~{::title},~{::link})">
     <title>文件上传</title>
-    <meta charset="utf-8"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
-    <script th:src="@{/jquery-3.1.1.min.js}"></script>
-    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+    <link th:href="@{/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+    <script th:src="@{jquery-3.1.1.min.js}"></script>
 </head>
 <body>
-
-<p/>
-<div class="container">
-    <div class="jumbotron">
-        <div th:include="header :: layout"></div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">文件上传</h3>
-            </div>
-            <div class="panel-body">
-                <div>
-                    <form role="form"
-                          id="uploadForm"
-                          method="POST"
-                          enctype="multipart/form-data"
-                          action="/api/file/uploadFile">
-                        <div class="form-group">
-                            <label for="name">保存名称</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="请输入名称"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputfile">文件输入</label>
-                            <input type="file" id="inputfile" name="file"/>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">提交</button>
-                    </form>
-                </div>
+<div layout:fragment="custom-content">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">文件上传</h3>
+        </div>
+        <div class="panel-body">
+            <div>
+                <form role="form"
+                      id="uploadForm"
+                      method="POST"
+                      enctype="multipart/form-data"
+                      action="/api/file/uploadFile">
+                    <div class="form-group">
+                        <label for="name">保存名称</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="请输入名称"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputfile">文件输入</label>
+                        <input type="file" id="inputfile" name="file"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">提交</button>
+                </form>
             </div>
         </div>
-        <div class="panel panel-primary">
+    </div>
+    <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">文件列表</h3>
             </div>
@@ -50,10 +45,7 @@
                 </ul>
             </div>
         </div>
-        <div th:include="footer :: layout"></div>
-    </div>
 </div>
-
 <script type="text/javascript">
     $("#uploadForm").submit(function(event) {
         event.preventDefault();

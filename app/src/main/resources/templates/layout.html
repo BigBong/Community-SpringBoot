@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:fragment="common_header(title,links)">
+    <title th:replace="${title}">Community</title>
+    <!-- Common styles and scripts -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+    <!--/* Per-page placeholder for additional links */-->
+    <th:block th:replace="${links}" />
+</head>
+<body>
+<p/>
+<div class="container">
+    <div class="jumbotron">
+        <div class="page-header" layout:fragment="custom-header">
+            <h2>Community Web With Spring Boot</h2>
+        </div>
+        <div layout:fragment="custom-content"></div>
+        <div class="page-footer" layout:fragment="custom-footer">
+            <h4>
+                <small>© 2016 frodo</small>
+            </h4>
+        </div>
+    </div>
+</div>
+</body>
+</html>
