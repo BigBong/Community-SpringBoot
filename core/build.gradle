@@ -7,9 +7,7 @@ configurations {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web") {
-        exclude module: "spring-boot-starter-tomcat"
-    }
+    compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-jdbc")
     compile("org.springframework.boot:spring-boot-starter-aop")
     compile("org.springframework.boot:spring-boot-starter-actuator")
@@ -19,7 +17,6 @@ dependencies {
     // http://www.mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/
     compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1")
 
-    compile("com.github.pagehelper:pagehelper:4.1.1")
     compile libraries.mybatis
     compile libraries.mybatis_spring
     compile libraries.mysql

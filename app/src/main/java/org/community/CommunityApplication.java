@@ -3,13 +3,14 @@ package org.community;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import java.util.Arrays;
 
@@ -17,15 +18,15 @@ import java.util.Arrays;
 @ComponentScan
 @EnableAutoConfiguration
 @Controller
-public class CommunityApplication extends WebMvcConfigurerAdapter {
+public class CommunityApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(CommunityApplication.class, args);
     }
 
-    @GetMapping("/")
-    public String home() {
-        return "redirect:/web/index";
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(CommunityApplication.class);
     }
 
     @Bean
@@ -42,5 +43,10 @@ public class CommunityApplication extends WebMvcConfigurerAdapter {
                 }
             }
         };
+    }
+
+    @GetMapping("/")
+    public String home() {
+        return "redirect:/web/index";
     }
 }

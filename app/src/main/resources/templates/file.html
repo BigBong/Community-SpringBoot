@@ -19,7 +19,7 @@
                       id="uploadForm"
                       method="POST"
                       enctype="multipart/form-data"
-                      action="/api/file/uploadFile">
+                      th:action="@{/api/file/uploadFile}">
                     <div class="form-group">
                         <label for="name">保存名称</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="请输入名称"/>
