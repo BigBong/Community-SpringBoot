@@ -34,5 +34,8 @@ public class UserService {
         return null;
     }
 
+    public int addUser(User user) {
+        return userMapper.insertSelective(user);
+    }
 
 }

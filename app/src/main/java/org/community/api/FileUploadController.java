@@ -95,7 +95,7 @@ public class FileUploadController {
         return responseJsonWrapper;
     }
 
-    @PostMapping(value = "/file/uploadMultipleFile")
+    @PostMapping("/file/uploadMultipleFile")
     public ResponseJsonWrapper<String> uploadMultipleFileHandler(@RequestParam("name") String[] names,
                                                                  @RequestParam("file") MultipartFile[] files) {
         ResponseJsonWrapper<String> responseJsonWrapper = new ResponseJsonWrapper<>();

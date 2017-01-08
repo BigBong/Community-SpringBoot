@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head th:replace="~{layout :: common_header(~{::title/text()},~{::link})}">
+    <title>用户信息</title>
+    <link th:href="@{/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+</head>
+<body>
+<div layout:fragment="custom-content">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">添加新用户</h3>
+        </div>
+        <div class="panel-body">
+            <form role="form"
+                  id="addUserForm"
+                  method="POST"
+                  enctype="multipart/form-data"
+                  th:action="@{/api/user/add}">
+                <div class="form-group">
+                    <label for="inputUserName">用户名</label>
+                    <input type="text" class="form-control" id="inputUserName"
+                           placeholder="username">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword">密码</label>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail">邮箱地址</label>
+                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+                           placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="genderSelect">性别</label>
+                    <select class="form-control" id="genderSelect">
+                        <option>男</option>
+                        <option>女</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="birthdayDateInput">出生日期</label>
+                    <input class="form-control" type="date" value="2011-08-19" id="birthdayDateInput">
+                </div>
+                <div class="form-group">
+                    <label for="headerInputFile">上传头像</label>
+                    <input type="file" class="form-control-file" id="headerInputFile" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text
+                        for the above input. It's a bit lighter and easily wraps to a new line.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="descriptionTextarea">描述</label>
+                    <textarea class="form-control" id="descriptionTextarea" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">添加</button>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">User列表</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>头像</th>
+                    <th>用户名</th>
+                    <th>邮箱</th>
+                    <th>手机</th>
+                    <th>位置</th>
+                    <th>最近时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="user : ${users}">
+                    <tr>
+                        <td th:text="${user.id}"></td>
+                        <td><img th:src="${user.avatarUrl}" class="img-responsive" alt="Cinque Terre"
+                                 style="width:30px; height:auto;"></td>
+                        <td th:text="${user.username}"></td>
+                        <td th:text="${user.email}"></td>
+                        <td th:text="${user.phone}"></td>
+                        <td th:text="${user.location}"></td>
+                        <td th:text="${user.updateAt}"></td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<th:block layout:fragment="script">
+    <script type="text/javascript">
+    $("#addUserForm").submit(function(event) {
+        event.preventDefault();
+        var formData = new FormData();
+        var username = $('#inputUserName').val();
+        alert(username);
+
+        formData.append('username', username);
+        var url = $(this).attr('action');
+        var type = $(this).attr('method');
+        $.ajax({
+            type: type,
+            url: url,
+            cache: false,
+            processData: false,
+            contentType: false,
+            success: function(data, textStatus, jqXHR) {
+                window.location.href = "/web/user";
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert(errorThrown)
+            }
+        });
+    });
+
+
+    </script>
+</th:block>
+</body>
+</html>
