@@ -22,4 +22,9 @@ public class UserWebController {
         model.addAttribute("users", userService.getAll());
         return "user";
     }
+
+    @RequestMapping("/login")
+    public String login() {
+        return "login";
+    }
 }
