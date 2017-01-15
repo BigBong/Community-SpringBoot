@@ -11,6 +11,10 @@ dependencies {
     compile("org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.1.RELEASE")
     compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.1.1")
 
+    compile("org.webjars:jquery:3.1.1-1")
+    compile("org.webjars:bootstrap:3.3.7-1")
+    compile("org.webjars:webjars-locator:0.32")
+
     providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 }
 

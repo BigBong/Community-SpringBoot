@@ -1,0 +1,49 @@
+# https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+logging:
+  level:
+    .: INFO
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/community?autoReconnect=true&autoReconnectForPools=true&useSSL=false&useCompression=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&socketTimeout=600000
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  # file upload
+  http:
+    multipart:
+      max-file-size: 1MB
+      max-request-size: 10MB
+  # thymeleaf
+  thymeleaf:
+    mode: HTML5
+    cache: false
+
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://localhost:8080/oauth/check_token
+    client:
+      client-id: acme
+      client-secret: acmesecret
+      scope: read,write
+      auto-approve-scopes: '.*'
+      user-authorization-uri: http://localhost:8080/oauth/authorize
+      access-token-uri: http://localhost:8080/oauth/token
+      grant-type: client_credentials
+
+mybatis:
+  typeAliasesPackage: org.community.domain
+  mapperLocations: classpath*:mybatis/sqlmap/**/*.xml
+
+server:
+  tomcat:
+    accesslog:
+      directory: /logs
+      suffix: .log
+
+# custom config
+community:
+  fileSystemDir: files/
+
+
