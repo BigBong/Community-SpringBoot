@@ -1,12 +1,12 @@
 package org.community.mapper;
 
-import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 import org.community.domain.User;
 import org.community.domain.UserExample;
+
+import java.util.List;
 
 @Mapper
 public interface UserMapper {

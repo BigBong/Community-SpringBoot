@@ -34,8 +34,19 @@ public class UserService {
         return null;
     }
 
+    public User getByName(String username) {
+        UserExample example = new UserExample();
+        UserExample.Criteria criteria = example.createCriteria();
+        criteria.andUsernameEqualTo(username);
+
+        List<User> users = userMapper.selectByExample(example);
+        if (!users.isEmpty()) {
+            return users.get(0);
+        }
+        return null;
+    }
+
     public int addUser(User user) {
         return userMapper.insertSelective(user);
     }
-
 }

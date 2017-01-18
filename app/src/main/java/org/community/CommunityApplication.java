@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -21,6 +22,8 @@ import java.util.Arrays;
 public class CommunityApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        System.out.println("encoder: mobile  ------> " + encoder.encode("mobile"));
         SpringApplication.run(CommunityApplication.class, args);
     }
 
