@@ -4,7 +4,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Created by frodoking on 2016/12/26.
@@ -12,14 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class SimpleController {
 
+    @GetMapping("/")
+    public String home() {
+        return "redirect:/web/index";
+    }
+
     @GetMapping("/web/index")
     public String index() {
         return "index";
     }
 
-    @GetMapping("/")
-    public String home() {
-        return "redirect:/web/index";
+    @GetMapping("/web/oauth2")
+    public String oauth2() {
+        return "oauth2";
     }
 
     @GetMapping("/web/test")
