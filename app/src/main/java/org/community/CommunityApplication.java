@@ -18,12 +18,9 @@ import java.util.Arrays;
 @Configuration
 @ComponentScan
 @EnableAutoConfiguration
-@Controller
 public class CommunityApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        System.out.println("encoder: mobile  ------> " + encoder.encode("mobile"));
         SpringApplication.run(CommunityApplication.class, args);
     }
 
@@ -46,10 +43,5 @@ public class CommunityApplication extends SpringBootServletInitializer {
                 }
             }
         };
-    }
-
-    @GetMapping("/")
-    public String home() {
-        return "redirect:/web/index";
     }
 }
