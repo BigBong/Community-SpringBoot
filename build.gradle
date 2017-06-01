@@ -1,8 +1,8 @@
-apply from: 'dependencyDefinitions.gradle'
+apply from: 'https://raw.githubusercontent.com/frodoking/gradle-dependency-definitions/master/SpringServerDependencyDefinitions.gradle'
 
 buildscript {
     ext {
-        springBootVersion = '1.4.3.RELEASE'
+        springBootVersion = '1.5.3.RELEASE'
     }
     repositories {
         jcenter()

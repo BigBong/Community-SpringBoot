@@ -1,6 +1,5 @@
 package org.community.web;
 
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,17 +17,17 @@ public class SimpleController {
         return "redirect:/web/index";
     }
 
-    @GetMapping("/web/index")
+    @GetMapping("/web/freedom/index")
     public String index() {
         return "index";
     }
 
-    @GetMapping("/web/oauth2")
+    @GetMapping("/web/freedom/oauth2")
     public String oauth2() {
         return "oauth2";
     }
 
-    @GetMapping("/web/test/{type}/{value}")
+    @GetMapping("/web/freedom/test/{type}/{value}")
     public String test(@PathVariable String type, @PathVariable String value, Model model) {
         StringBuilder sb = new StringBuilder();
         if (type.equalsIgnoreCase("BCrypt")) {
