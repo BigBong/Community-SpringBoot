@@ -1,5 +1,6 @@
 package org.community.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.community.domain.User;
 import org.community.domain.UserPrivilege;
 import org.slf4j.Logger;
@@ -19,8 +20,8 @@ import java.util.List;
  * Created by frodoking on 2017/1/16.
  */
 @Service
+@Slf4j
 public class OauthUserDetailsService implements UserDetailsService {
-    private static final Logger logger = LoggerFactory.getLogger(OauthUserDetailsService.class);
     @Autowired
     private UserService userService;
     @Autowired
@@ -28,7 +29,7 @@ public class OauthUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        logger.info("loadUserByUsername >> " + username);
+        log.info("loadUserByUsername >> " + username);
         final User user = userService.getByName(username);
         if (user == null)
             throw new UsernameNotFoundException(username);
@@ -37,7 +38,7 @@ public class OauthUserDetailsService implements UserDetailsService {
         final List<GrantedAuthority> grantedAuthorities = new ArrayList<>(privileges.size());
         grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
         for (UserPrivilege privilege : privileges) {
-            logger.info("loadUserByUsername >> " + username + ", privilege >> " + privilege.getPrivilege());
+            log.info("loadUserByUsername >> " + username + ", privilege >> " + privilege.getPrivilege());
             grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_" + privilege.getPrivilege()));
         }
 

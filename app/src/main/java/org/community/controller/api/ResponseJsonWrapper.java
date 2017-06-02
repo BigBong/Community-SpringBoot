@@ -1,4 +1,4 @@
-package org.community.api;
+package org.community.controller.api;
 
 /**
  * Created by frodoking on 2016/12/29.

@@ -1,4 +1,4 @@
-package org.community.api;
+package org.community.controller.api;
 
 import org.community.property.CustomProperties;
 import org.community.service.FileService;

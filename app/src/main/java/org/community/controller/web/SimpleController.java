@@ -1,4 +1,4 @@
-package org.community.web;
+package org.community.controller.web;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -14,7 +14,7 @@ public class SimpleController {
 
     @GetMapping("/")
     public String home() {
-        return "redirect:/web/index";
+        return "redirect:/web/freedom/index";
     }
 
     @GetMapping("/web/freedom/index")

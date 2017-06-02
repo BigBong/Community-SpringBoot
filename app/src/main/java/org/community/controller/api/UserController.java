@@ -1,4 +1,4 @@
-package org.community.api;
+package org.community.controller.api;
 
 import org.community.service.UserService;
 import org.community.domain.User;

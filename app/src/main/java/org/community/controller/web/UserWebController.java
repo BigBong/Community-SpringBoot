@@ -1,4 +1,4 @@
-package org.community.web;
+package org.community.controller.web;
 
 import org.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

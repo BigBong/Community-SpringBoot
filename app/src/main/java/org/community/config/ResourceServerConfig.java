@@ -18,14 +18,13 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
      */
     @Override
     public void configure(HttpSecurity http) throws Exception {
+        // HttpSecurity：一般用它来具体控制权限，角色，url等安全的东西。
         http.csrf().disable();
         http.authorizeRequests()
-                .antMatchers("/", "/web/freedom/**",
-                        "/webjars/**", "/css/**", "/js/**", "/images/**",
-                        "/oauth/**").permitAll()
+                .antMatchers("/", "/web/freedom/**", "/oauth/**").permitAll()
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/web/login").permitAll()
                 .and().logout().permitAll()
-                .and().exceptionHandling().authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/web/oauth2"));
+                .and().exceptionHandling().authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/web/login"));
     }
 }
