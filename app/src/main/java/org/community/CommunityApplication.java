@@ -9,15 +9,14 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.util.Arrays;
 
 @Configuration
 @ComponentScan
 @EnableAutoConfiguration
+@EnableTransactionManagement
 public class CommunityApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

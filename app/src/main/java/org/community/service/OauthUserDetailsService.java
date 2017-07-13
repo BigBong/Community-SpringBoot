@@ -3,8 +3,6 @@ package org.community.service;
 import lombok.extern.slf4j.Slf4j;
 import org.community.domain.User;
 import org.community.domain.UserPrivilege;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -42,7 +40,6 @@ public class OauthUserDetailsService implements UserDetailsService {
             grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_" + privilege.getPrivilege()));
         }
 
-        return  new org.springframework.security.core.userdetails.User(user.getUsername(),
-                user.getPassword(), true,true, true,true, grantedAuthorities);
+        return  new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), grantedAuthorities);
     }
 }

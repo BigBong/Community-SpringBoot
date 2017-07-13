@@ -4,7 +4,6 @@
       layout:decorate="layout">
 <head th:replace="~{layout :: common_header(~{::title/text()},~{::link})}">
     <title>用户信息</title>
-    <link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
 </head>
 <body>
 <div layout:fragment="custom-content">
@@ -98,31 +97,29 @@
 </div>
 <th:block layout:fragment="script">
     <script type="text/javascript">
-    $("#addUserForm").submit(function(event) {
-        event.preventDefault();
-        var formData = new FormData();
-        var username = $('#inputUserName').val();
-        alert(username);
+        $("#addUserForm").submit(function(event) {
+            event.preventDefault();
+            var formData = new FormData();
+            var username = $('#inputUserName').val();
+            alert(username);
 
-        formData.append('username', username);
-        var url = $(this).attr('action');
-        var type = $(this).attr('method');
-        $.ajax({
-            type: type,
-            url: url,
-            cache: false,
-            processData: false,
-            contentType: false,
-            success: function(data, textStatus, jqXHR) {
-                window.location.href = "/web/user";
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                alert(errorThrown)
-            }
+            formData.append('username', username);
+            var url = $(this).attr('action');
+            var type = $(this).attr('method');
+            $.ajax({
+                type: type,
+                url: url,
+                cache: false,
+                processData: false,
+                contentType: false,
+                success: function(data, textStatus, jqXHR) {
+                    window.location.href = "/web/user";
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert(errorThrown)
+                }
+            });
         });
-    });
-
-
     </script>
 </th:block>
 </body>
