@@ -1,5 +1,6 @@
 package org.community.controller.api;
 
+import lombok.extern.slf4j.Slf4j;
 import org.community.property.CustomProperties;
 import org.community.service.FileService;
 import org.slf4j.Logger;
@@ -19,11 +20,10 @@ import java.io.FileOutputStream;
 /**
  * Created by frodoking on 2016/12/27.
  */
+@Slf4j
 @RestController
 @RequestMapping("/api")
 public class FileUploadController {
-
-    private static final Logger logger = LoggerFactory.getLogger(FileUploadController.class);
 
     @Autowired
     private FileService fileService;
@@ -32,7 +32,7 @@ public class FileUploadController {
 
     @GetMapping("/files/{filename:.+}")
     public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
-        logger.info("Request params [name: " + filename + "]");
+        log.info("Request params [name: " + filename + "]");
         Resource resource = null;
         String rootPath = customProperties.getFileSystemDir();
         File dir = new File(rootPath);
@@ -59,7 +59,7 @@ public class FileUploadController {
     public ResponseJsonWrapper<String> handleFileUpload(@RequestParam("name") String name,
                                                         @RequestParam("file") MultipartFile file) {
 
-        logger.info("Request params [name: " + name + ", originFileName: " + file.getName() + "]");
+        log.info("Request params [name: " + name + ", originFileName: " + file.getName() + "]");
 
         ResponseJsonWrapper<String> responseJsonWrapper = new ResponseJsonWrapper<>();
         responseJsonWrapper.setStatus(300);
@@ -126,7 +126,7 @@ public class FileUploadController {
                 stream.write(bytes);
                 stream.close();
 
-                logger.info("Server File Location=" + serverFile.getAbsolutePath());
+                log.info("Server File Location=" + serverFile.getAbsolutePath());
 
                 responseJsonWrapper.setStatus(200);
                 message = message + "You successfully uploaded file=" + name;

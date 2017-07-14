@@ -1,8 +1,8 @@
 package org.community.core;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import public org.hamcrest.Matchers.equalTo;
+import public org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import public org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

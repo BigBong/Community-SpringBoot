@@ -27,6 +27,11 @@ public class UserController {
         return userService.getById(id);
     }
 
+    @GetMapping("/user/check")
+    public User login(String username, String password) {
+        return userService.getByName(username);
+    }
+
     @PostMapping("/user/add")
     public ResponseJsonWrapper<User> addUser(User user) {
         ResponseJsonWrapper<User> responseJsonWrapper = new ResponseJsonWrapper<>();

@@ -1,8 +1,8 @@
 # https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 logging:
   level:
-    org.springframework: DEBUG
-    com.ibatis: DEBUG
+    org.springframework: INFO
+    com.ibatis: INFO
 
 spring:
   datasource:
