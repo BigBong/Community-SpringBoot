@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="menu" th:unless="${#lists.isEmpty(menu.groups)}" id="results-block">
+    <div class="menu_section" th:each="group : ${menu.groups}">
+        <h3 th:text="${group.name}"></h3>
+        <ul class="nav side-menu">
+            <li th:each="groupItem : ${group.groupItems}"><a><i class="fa " th:classappend="${groupItem.icon}"></i> <span th:text="${groupItem.name}"></span> <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li th:each="item : ${groupItem.items}"><a th:href="${item.url}" th:text="${item.name}"></a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

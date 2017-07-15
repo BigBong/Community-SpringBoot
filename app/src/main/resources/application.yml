@@ -15,9 +15,14 @@ spring:
     multipart:
       max-file-size: 1MB
       max-request-size: 10MB
+    encoding:
+      charset: UTF-8
   # thymeleaf
   thymeleaf:
     cache: false
+    encoding: UTF-8
+  messages:
+    encoding: UTF-8
 
 mybatis:
   typeAliasesPackage: org.community.domain

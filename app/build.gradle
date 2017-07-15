@@ -18,6 +18,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
 //    compile("org.springframework.security.oauth:spring-security-oauth2:2.0.13.RELEASE")
 
+    compile libraries.commons_collections
+
     compile('org.webjars:jquery:3.1.1-1')
     compile('org.webjars:bootstrap:3.3.7-1')
     compile('org.webjars:font-awesome:4.7.0')

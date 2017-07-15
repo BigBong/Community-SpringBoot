@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="layouts/adminLayout">
+      layout:decorate="~{layouts/adminLayout}">
 <head th:replace="~{layouts/adminLayout :: common_header(~{::title/text()},~{::link})}">
     <title>首页</title>
 </head>
 <body>
-<div layout:fragment="custom-content">
-    <p>custom-content</p>
-</div>
+    <div layout:fragment="content">haha !!</div>
 </body>
 </html>
