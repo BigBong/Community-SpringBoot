@@ -17,21 +17,7 @@ spring:
       max-request-size: 10MB
   # thymeleaf
   thymeleaf:
-    mode: HTML5
     cache: false
-
-security:
-  oauth2:
-    resource:
-      token-info-uri: http://localhost:8080/oauth/check_token
-    client:
-      client-id: acme
-      client-secret: acmesecret
-      scope: read,write
-      auto-approve-scopes: '.*'
-      user-authorization-uri: http://localhost:8080/oauth/authorize
-      access-token-uri: http://localhost:8080/oauth/token
-      grant-type: client_credentials
 
 mybatis:
   typeAliasesPackage: org.community.domain

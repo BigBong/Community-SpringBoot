@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/errorLayout">
+<head th:replace="~{layouts/errorLayout :: common_header(~{::title/text()},~{::link})}">
+  <title>404</title>
+</head>
+<body>
+<div layout:fragment="custom-content">
+  <h1 class="error-number">404</h1>
+  <h2>Sorry but we couldn't find this page</h2>
+  <p>This page you are looking for does not exist <a href="#">Report this?</a>
+  </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/errorLayout">
+<head th:replace="~{layouts/errorLayout :: common_header(~{::title/text()},~{::link})}">
+  <title>500</title>
+</head>
+<body>
+<div layout:fragment="custom-content">
+  <h1 class="error-number">500</h1>
+  <h2>Internal Server Error</h2>
+  <p>We track these errors automatically, but if the problem persists feel free to contact us. In the meantime, try refreshing. <a href="#">Report this?</a>
+  </p>
+</div>
+</body>
+</html>

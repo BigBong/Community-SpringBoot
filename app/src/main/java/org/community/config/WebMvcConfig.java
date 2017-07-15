@@ -1,5 +1,6 @@
 package org.community.config;
 
+import org.community.exception.ErrorInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.web.servlet.config.annotation.*;
@@ -17,7 +18,13 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-//        registry.addViewController("/login").setViewName("test/login");
-//        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+        registry.addViewController("/login").setViewName("admin/login");
+        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new ErrorInterceptor()).addPathPatterns("/**");
+        super.addInterceptors(registry);
     }
 }

@@ -16,11 +16,6 @@ public class SimpleController {
 
     @GetMapping("/web/freedom/index")
     public String index() {
-        return "index";
-    }
-
-    @GetMapping("/login")
-    public String login() {
-        return "admin/login";
+        return "test/index";
     }
 }

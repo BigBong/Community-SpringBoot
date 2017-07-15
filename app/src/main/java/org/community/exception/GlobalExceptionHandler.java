@@ -18,7 +18,11 @@ public class GlobalExceptionHandler {
         ModelAndView mav = new ModelAndView();
         mav.addObject("exception", e.getMessage());
         mav.addObject("url", req.getRequestURL());
-        mav.setViewName(DEFAULT_ERROR_VIEW);
+        String requestURL = req.getRequestURL().toString();
+        if (requestURL.contains("/web/")) {
+            mav.setViewName(DEFAULT_ERROR_VIEW);
+        }
+
         return mav;
     }
 }

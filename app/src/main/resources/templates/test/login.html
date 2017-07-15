@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/testLayout}">
-<head th:replace="~{layout :: common_header(~{::title/text()},~{::link})}">
+<head th:replace="~{layouts/testLayout :: common_header(~{::title/text()},~{::link})}">
     <title>用户登录</title>
     <link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap-theme.min.css}" rel="stylesheet"/>
 </head>

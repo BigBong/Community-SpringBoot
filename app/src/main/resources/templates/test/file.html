@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/testLayout}">
-<head th:replace="layout :: common_header(~{::title},~{::link})">
+<head th:replace="~{layouts/testLayout :: common_header(~{::title/text()},~{::link})}">
     <title>文件上传</title>
 </head>
 <body>

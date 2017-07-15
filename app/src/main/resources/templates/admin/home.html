@@ -2,74 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="layouts/adminLayout">
-<head th:replace="~{layout :: common_header(~{::title/text()},~{::link})}">
+<head th:replace="~{layouts/adminLayout :: common_header(~{::title/text()},~{::link})}">
     <title>首页</title>
 </head>
 <body>
 <div layout:fragment="custom-content">
-    <div class="list-group">
-        <a href="#" class="list-group-item active">
-            <h4 class="list-group-item-heading">
-                基本功能
-            </h4>
-        </a>
-        <a th:href="@{/web/file/upload}" class="list-group-item">
-            <h4 class="list-group-item-heading">
-                文件操作
-            </h4>
-            <p class="list-group-item-text">
-                上传小文件到服务器并且支持查看功能
-            </p>
-        </a>
-        <a th:href="@{/web/user}" class="list-group-item">
-            <h4 class="list-group-item-heading">
-                User信息
-            </h4>
-            <p class="list-group-item-text">
-                查看当前库User表
-            </p>
-        </a>
-    </div>
-    <p/>
-    <div class="list-group">
-        <a href="#" class="list-group-item active">
-            <h4 class="list-group-item-heading">
-                服务器性能检测
-            </h4>
-        </a>
-        <a th:href="@{/info}" class="list-group-item">
-            <h4 class="list-group-item-heading">
-                查看服务器基本信息
-            </h4>
-            <p class="list-group-item-text">
-                /info
-            </p>
-        </a>
-        <a th:href="@{/beans}" class="list-group-item">
-            <h4 class="list-group-item-heading">
-                查看beans
-            </h4>
-            <p class="list-group-item-text">
-                /beans
-            </p>
-        </a>
-        <a th:href="@{/health}" class="list-group-item">
-            <h4 class="list-group-item-heading">
-                查看服务器状态
-            </h4>
-            <p class="list-group-item-text">
-                /health
-            </p>
-        </a>
-        <a th:href="@{/mappings}" class="list-group-item">
-            <h4 class="list-group-item-heading">
-                查看服务器api
-            </h4>
-            <p class="list-group-item-text">
-                /mappings
-            </p>
-        </a>
-    </div>
+    <p>custom-content</p>
 </div>
 </body>
 </html>
