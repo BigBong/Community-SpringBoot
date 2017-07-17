@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div  th:fragment="menuProfile" class="profile clearfix">
+    <div class="profile_pic">
+        <img th:src="${user.avatarUrl}" alt="..." class="img-circle profile_img">
+    </div>
+    <div class="profile_info">
+        <span>Welcome,</span>
+        <h2 th:utext="${user.username}"></h2>
+    </div>
+</div>
+</body>
+</html>

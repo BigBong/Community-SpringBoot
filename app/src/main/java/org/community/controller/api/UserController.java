@@ -3,6 +3,8 @@ package org.community.controller.api;
 import org.community.service.UserService;
 import org.community.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,6 +27,13 @@ public class UserController {
     @GetMapping("/user/{id}")
     public User view(@PathVariable Integer id) {
         return userService.getById(id);
+    }
+
+    @GetMapping("/user")
+    public User viewLoginUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        return userService.getByName(currentPrincipalName);
     }
 
     @GetMapping("/user/check")
