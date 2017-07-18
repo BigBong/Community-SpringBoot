@@ -4,58 +4,20 @@
 <head>
 </head>
 <body>
-<div th:fragment="navMessages">
+<div th:fragment="navMessages" th:unless="${#lists.isEmpty(messages)}">
     <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
         <i class="fa fa-envelope-o"></i>
-        <span class="badge bg-green">6</span>
+        <span class="badge bg-green" th:text="${#lists.size(messages)}"></span>
     </a>
     <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-        <li>
+        <li th:each="msg : ${messages}">
             <a>
-                <span class="image"><img th:src="@{/images/img.jpg}" alt="Profile Image" /></span>
+                <span class="image"><img th:src="${msg.user.avatarUrl}" alt="Profile Image" /></span>
                 <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-            </a>
-        </li>
-        <li>
-            <a>
-                <span class="image"><img th:src="@{/images/img.jpg}"  alt="Profile Image" /></span>
-                <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-            </a>
-        </li>
-        <li>
-            <a>
-                <span class="image"><img th:src="@{/images/img.jpg}"  alt="Profile Image" /></span>
-                <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-            </a>
-        </li>
-        <li>
-            <a>
-                <span class="image"><img th:src="@{/images/img.jpg}"  alt="Profile Image" /></span>
-                <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
+                  <span th:text="${msg.user.username}"></span>
+                  <span class="time" th:text="${msg.time}"></span>
+                </span>
+                <span class="message"  th:text="${msg.info}"></span>
             </a>
         </li>
         <li>
