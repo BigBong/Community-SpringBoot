@@ -2,7 +2,7 @@ package org.community.controller.web;
 
 import org.community.domain.User;
 import org.community.entity.Message;
-import org.community.menu.AdminMenu;
+import org.community.service.AdminMenuService;
 import org.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -24,10 +24,12 @@ public class TemplateController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private AdminMenuService adminMenuService;
 
     @RequestMapping(value = "/menu", method = RequestMethod.GET)
     public String menuList(Model model) {
-        model.addAttribute("menu", getMenu());
+        model.addAttribute("menu", adminMenuService.adminMenuGroupList());
         return "fragments/menuFragment :: menu";
     }
 
@@ -53,32 +55,6 @@ public class TemplateController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         return userService.getByName(currentPrincipalName);
-    }
-
-    private AdminMenu getMenu() {
-        AdminMenu adminMenu = new AdminMenu();
-        adminMenu.groups = new ArrayList<>();
-        for (int i = 0; i < 2; i++) {
-            AdminMenu.Group group = new AdminMenu.Group();
-            adminMenu.groups.add(group);
-            group.name = "group 0" + (i + 1);
-            group.groupItems = new ArrayList<>();
-            for (int j = 0; j < 5; j++) {
-                AdminMenu.GroupItem groupItem = new AdminMenu.GroupItem();
-                group.groupItems.add(groupItem);
-                groupItem.icon = "fa-home";
-                groupItem.name = "GroupItem 0" + (j + 1);
-                groupItem.items = new ArrayList<>();
-                for (int k = 0; k < 3; k++) {
-                    AdminMenu.Item item = new AdminMenu.Item();
-                    groupItem.items.add(item);
-                    item.name = "Item 0" + (k + 1);
-                    item.url = "/web/user";
-                }
-            }
-        }
-
-        return adminMenu;
     }
 
     private List<Message> getMessages() {

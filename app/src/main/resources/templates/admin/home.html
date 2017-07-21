@@ -6,6 +6,15 @@
     <title>首页</title>
 </head>
 <body>
-    <div layout:fragment="content">haha !!</div>
+    <div layout:fragment="content">
+        <div id="contentBlock"></div>
+    </div>
 </body>
+<th:block layout:fragment="script">
+    <script type="text/javascript">
+        $().ready(function() {
+            $("#contentBlock").load("/web/admin/dashboard");
+        })
+    </script>
+</th:block>
 </html>

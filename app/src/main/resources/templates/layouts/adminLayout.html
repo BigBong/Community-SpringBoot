@@ -27,7 +27,7 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Admin Template</span></a>
                 </div>
 
                 <div class="clearfix"></div>
@@ -39,7 +39,9 @@
                 <br />
 
                 <!-- sidebar menu -->
-                <div id="sidebarMenuBlock"></div>
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div id="sidebarMenuBlock"></div>
+                </div>
                 <!-- /sidebar menu -->
 
                 <!-- /menu footer buttons -->
@@ -109,17 +111,15 @@
 <!-- NProgress -->
 <script type="text/javascript" th:src="@{/webjars/nprogress/0.1.2/nprogress.js}"></script>
 <!-- Custom Theme Scripts -->
-<script type="text/javascript" th:src="@{/js/gentelella.js}"></script>
 <script type="text/javascript" th:src="@{/js/app.js}"></script>
-<th:block layout:fragment="script">
-    <script type="text/javascript">
-        $().ready(function() {
-            $("#sidebarMenuBlock").load("/web/template/menu");
-            $("#menuProfileBlock").load("/web/template/menu/profile");
-            $("#navProfileBlock").load("/web/template/nav/profile");
-            $("#navMessagesBlock").load("/web/template/nav/messages");
-        })
-    </script>
-</th:block>
+<script type="text/javascript">
+    $().ready(function() {
+        $("#sidebarMenuBlock").load("/web/template/menu");
+        $("#menuProfileBlock").load("/web/template/menu/profile");
+        $("#navProfileBlock").load("/web/template/nav/profile");
+        $("#navMessagesBlock").load("/web/template/nav/messages");
+    })
+</script>
+<th:block layout:fragment="script"></th:block>
 </body>
 </html>

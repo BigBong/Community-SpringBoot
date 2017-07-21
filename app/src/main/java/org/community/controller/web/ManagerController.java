@@ -20,4 +20,9 @@ public class ManagerController {
     public String home() {
         return "admin/home";
     }
+
+    @GetMapping("/dashboard")
+    public String dashboard() {
+        return "admin/dashboard";
+    }
 }

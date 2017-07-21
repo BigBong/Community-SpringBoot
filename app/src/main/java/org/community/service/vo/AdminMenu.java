@@ -1,4 +1,4 @@
-package org.community.menu;
+package org.community.service.vo;
 
 import java.util.List;
 
