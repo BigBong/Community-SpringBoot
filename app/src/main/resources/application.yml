@@ -33,6 +33,7 @@ server:
     accesslog:
       directory: /logs
       suffix: .log
+  context-path: /community
 
 # custom config
 community:
