@@ -5,8 +5,10 @@ logging:
     com.ibatis: INFO
 
 spring:
+  application:
+    name: community-service
   datasource:
-    url: jdbc:mysql://localhost:3306/community?autoReconnect=true&autoReconnectForPools=true&useSSL=false&useCompression=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&socketTimeout=600000
+    url: jdbc:mysql://10.100.67.193:8306/community?autoReconnect=true&autoReconnectForPools=true&useSSL=false&useCompression=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&socketTimeout=600000
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
@@ -34,9 +36,16 @@ server:
       directory: /logs
       suffix: .log
   context-path: /community
+  port: 8088
+
 
 # custom config
 community:
   fileSystemDir: files/
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.100.67.193:8761/eurekaservice/eureka/
 
 
