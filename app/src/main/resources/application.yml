@@ -44,8 +44,15 @@ community:
   fileSystemDir: files/
 
 eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
   client:
     serviceUrl:
       defaultZone: http://10.100.67.193:8761/eurekaservice/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
 
 
